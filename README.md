@@ -3,9 +3,9 @@
 ## Why this exists
 
 I created this for one specific purpose, to keep myself from being kicked to the
-AFK channel while playing video games in my Windows VM. The hypervisor host has
-no way of picking up my keystrokes and other activity because I perform PCI
-passthrough of an entire USB root device to the Windows VM (in addition to the
+AFK channel while playing video games in my Windows VM. The Linux host where I run
+Discord has no way of picking up my keystrokes and other activity because I perform
+PCI passthrough of an entire USB root device to the Windows VM (in addition to the
 dedicated GPU).
 
 ## How to use
