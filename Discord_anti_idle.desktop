@@ -1,0 +1,17 @@
+[Desktop Entry]
+Categories=Network;InstantMessaging;
+Comment[en_US]=Launch Discord with the anti-AFK script
+Comment=Launch Discord with the anti-AFK script
+Exec=/bin/bash /home/user/discord_anti_idle.sh
+GenericName[en_US]=Anti-AFK Internet Messenger
+GenericName=Anti-AFK Internet Messenger
+Icon=com.discordapp.Discord
+MimeType=
+Name[en_US]=Discord
+Name=Discord
+Path=/home/user
+StartupNotify=true
+StartupWMClass=discord
+Terminal=false
+TerminalOptions=
+Type=Application
