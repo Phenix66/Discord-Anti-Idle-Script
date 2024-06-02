@@ -2,9 +2,9 @@
 set -euo pipefail
 
 # Configure appropriately depending on the AFK timer of your Discord server.
-# The amount of time after which the command is triggered (in milliseconds)
+# The amount of time after which the command is triggered
 IDLE_TIME_MINUTES=5
-# Time between idle checks (in seconds)
+# Time between idle checks
 SLEEP_TIME_MINUTES=1
 
 # The default (Ctrl+/) opens and closes the keyboard shortcuts window.
@@ -35,6 +35,17 @@ check_for_dependencies() {
         echo "Missing tools: ${missing[@]}"
         exit 1
     fi
+}
+
+is_screen_locked() {
+  if dbus-send --session --dest=org.freedesktop.ScreenSaver \
+        --type=method_call --print-reply /org/freedesktop/ScreenSaver \
+        org.freedesktop.ScreenSaver.GetActive | grep -q 'boolean true' &> /dev/null;
+  then
+    return 0
+  else
+    return 1
+  fi
 }
 
 launch_discord() {
@@ -76,9 +87,11 @@ monitor_x_for_idle() {
             # Discord exited, exit script
             exit 0
         fi
-        idle=$(xprintidle)
-        if [[ $idle -ge $IDLE_TIME ]]; then
-            trigger_anti_idle_cmd
+        if ! is_screen_locked; then
+            idle=$(xprintidle)
+            if [[ $idle -ge $IDLE_TIME ]]; then
+                trigger_anti_idle_cmd
+            fi
         fi
     done
 }
