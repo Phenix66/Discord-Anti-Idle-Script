@@ -1,5 +1,10 @@
 # Discord-Anti-Idle-Script
 
+Only works on X11. Sadly Wayland does not support many of the APIs that are
+required to make this work in a seamless manner. I'm sure there's a method of
+achieving it but I'm not terribly interested in sinking the time into figuring
+it out.
+
 ## Why this exists
 
 I created this for one specific purpose, to keep myself from being kicked to the
