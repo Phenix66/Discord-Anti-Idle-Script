@@ -78,7 +78,7 @@ trigger_anti_idle_cmd() {
 
     # When launched from the desktop shortcut, this will log to the journal.
     # View with `journalctl -b` to validate it is working properly.
-    echo "Triggered Discord anti-idle command sucessfully."
+    echo "Triggered Discord anti-idle command successfully."
 }
 
 monitor_x_for_idle() {
